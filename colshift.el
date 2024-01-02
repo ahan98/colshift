@@ -64,7 +64,7 @@ with the state returned by `window-state-get'."
       (setq index2 (max 0 (+ index1 increment)))
       (when (and (>= index2 0)
                  (< index2 size))
-        (rotatef (nth index1 columns)
+        (cl-rotatef (nth index1 columns)
                  (nth index2 columns)))
       (setq index1 index2))
     columns))
@@ -100,7 +100,7 @@ COUNT is the number of times the reordering should be performed."
 
       ;; Update the window state data structure...
       (setf (cddr win-state)
-            (concatenate 'list
+            (cl-concatenate 'list
                          (nreverse header)
                          columns)))
     ;; ...and actually install it in the root window
